@@ -1,30 +1,30 @@
-package testClassPackage;
+package testfactorClassPackage;
 import static io.restassured.RestAssured.given;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import commonFunctionPackage.API_Common_Functions;
-import commonFunctionPackage.Utility_Common_Functions;
+import comaFunctionPackage.CommonAPIFunctions;
+import comaFunctionPackage.CommonUtilityFunctions;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
-import requestRepositoryPackage.Post_Req_Repository;
+import reqRepoPackage.Re_Po_Repository;
 
-public class Post_TC3
-{    @Test
+public class post_TC___2
+{  @Test
 	public static void execute() throws IOException 
 	{
 		for(int i=0;i<5;i++)
 		{
-		int res_statuscode=API_Common_Functions.res_statusCode(Post_Req_Repository.base_URI(),
-				Post_Req_Repository.post_req_tc3(),Post_Req_Repository.post_resource());
+		int res_statuscode=CommonAPIFunctions.res_statusCode(Re_Po_Repository.base_URI(),
+				Re_Po_Repository.post_req_tc2(),Re_Po_Repository.post_resource());
 	    if( res_statuscode == 201 ) 
 	    {
-    	String res_responseBody=API_Common_Functions.res_responseBody(Post_Req_Repository.base_URI(),
-    			Post_Req_Repository.post_req_tc3(),Post_Req_Repository.post_resource());	
-	    Post_TC3.validator(res_responseBody, res_statuscode);
-	    Utility_Common_Functions.evidencecreator("Post_TC3",Post_Req_Repository.post_req_tc3(),res_responseBody);
+    	String res_responseBody=CommonAPIFunctions.res_responseBody(Re_Po_Repository.base_URI(),
+    			Re_Po_Repository.post_req_tc2(),Re_Po_Repository.post_resource());	
+	    post_TC___2.validator(res_responseBody, res_statuscode);
+	    CommonUtilityFunctions.evidencecreator("Post_TC2",Re_Po_Repository.post_req_tc2(),res_responseBody);
 	    break;
 	    }
 	    else
@@ -49,7 +49,7 @@ public class Post_TC3
 	//	System.out.println(res_createdAt);
 
 		//request body
-		JsonPath jspreq=new JsonPath(Post_Req_Repository.post_req_tc3());
+		JsonPath jspreq=new JsonPath(Re_Po_Repository.post_req_tc2());
 		String req_name=jspreq.getString("name");
 		String req_job=jspreq.getString("job");
 				//validate response body 
