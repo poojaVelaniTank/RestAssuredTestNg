@@ -1,29 +1,29 @@
-package testfactorClassPackage;
+package testClassPackage;
 import static io.restassured.RestAssured.given;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import comaFunctionPackage.CommonAPIFunctions;
-import comaFunctionPackage.CommonUtilityFunctions;
+import commonFunctionPackage.CommonAPIFunctions;
+import commonFunctionPackage.CommonUtilityFunctions;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
-import reqRepoPackage.Re_Po_Repository;
+import reqRepoPackage.Req_Post_Repository;
 public class post_TC___1
 {  @Test
 	public static void execute() throws IOException 
 	{       
 	    for(int i=0;i<5;i++)
 		{
-		int res_statuscode=CommonAPIFunctions.res_statusCode(Re_Po_Repository.base_URI(),
-				Re_Po_Repository.post_req_tc1(),Re_Po_Repository.post_resource());
+		int res_statuscode=CommonAPIFunctions.res_statusCode(Req_Post_Repository.base_URI(),
+				Req_Post_Repository.post_req_tc1(),Req_Post_Repository.post_resource());
 	    if( res_statuscode == 201 ) 
 	    {
-    	String res_responseBody=CommonAPIFunctions.res_responseBody(Re_Po_Repository.base_URI(),
-    			Re_Po_Repository.post_req_tc1(),Re_Po_Repository.post_resource());	
+    	String res_responseBody=CommonAPIFunctions.res_responseBody(Req_Post_Repository.base_URI(),
+    			Req_Post_Repository.post_req_tc1(),Req_Post_Repository.post_resource());	
 	    post_TC___1.validator(res_responseBody, res_statuscode);
-	    CommonUtilityFunctions.evidencecreator("Post_TC1",Re_Po_Repository.post_req_tc1(),res_responseBody);
+	    CommonUtilityFunctions.evidencecreator("Post_TC1",Req_Post_Repository.post_req_tc1(),res_responseBody);
 	    break;
 	    }
 	    else
@@ -47,7 +47,7 @@ public class post_TC___1
 	//	System.out.println(res_createdAt);
 
 		//request body
-		JsonPath jspreq=new JsonPath(Re_Po_Repository.post_req_tc1());
+		JsonPath jspreq=new JsonPath(Req_Post_Repository.post_req_tc1());
 		String req_name=jspreq.getString("name");
 		String req_job=jspreq.getString("job");
 		

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import org.testng.annotations.BeforeTest;
 
-import comaFunctionPackage.CommonUtilityFunctions;
-public class Re_Po_Repository {
+import commonFunctionPackage.CommonUtilityFunctions;
+public class Req_Post_Repository {
 	@BeforeTest
 	public static String base_URI()
 	{   
